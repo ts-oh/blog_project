@@ -3,17 +3,22 @@ let postsArray = [];
 const titleInput = document.querySelector("#post-title");
 const bodyInput = document.querySelector("#post-body");
 const form = document.querySelector("#new-post");
+const list = document.querySelector("#blog-list");
 
 function renderPosts() {
-  let html = "";
+  list.textContent = "";
   for (let post of postsArray) {
-    html += `
-              <h3>${post.title}</h3>
-              <p>${post.body}</p>
-              <hr />
-          `;
+    const drawTitle = document.createElement("h3");
+    drawTitle.textContent = post.title;
+    list.appendChild(drawTitle);
+
+    const drawBody = document.createElement("p");
+    drawBody.textContent = post.body;
+    list.appendChild(drawBody);
+
+    const drawLineBreak = document.createElement("hr");
+    list.appendChild(drawLineBreak);
   }
-  document.getElementById("blog-list").innerHTML = html;
 }
 
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
