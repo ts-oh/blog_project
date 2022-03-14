@@ -17,8 +17,26 @@ document.querySelector("#new-post").addEventListener("submit", (e) => {
   e.preventDefault();
   const postTitle = document.querySelector("#post-title").value;
   const postBody = document.querySelector("#post-body").value;
-  console.log(postTitle);
-  console.log(postBody);
-  let postData = { title: postTitle, body: postBody };
-  console.log(postData);
+  const data = {
+    title: postTitle,
+    body: postBody,
+  };
+
+  const options = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  fetch("https://apis.scrimba.com/jsonplaceholder/posts", options)
+    .then((response) => response.json())
+    .then((post) => {
+      console.log(post);
+      document.getElementById("blog-list").innerHTML += `
+      <h3>${post.title}</h3>
+      <p>${post.body}</p>
+      <hr />`;
+    });
 });
