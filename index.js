@@ -12,3 +12,13 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     }
     document.getElementById("blog-list").innerHTML = html;
   });
+
+document.querySelector("#new-post").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const postTitle = document.querySelector("#post-title").value;
+  const postBody = document.querySelector("#post-body").value;
+  console.log(postTitle);
+  console.log(postBody);
+  let postData = { title: postTitle, body: postBody };
+  console.log(postData);
+});

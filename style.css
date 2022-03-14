@@ -34,18 +34,30 @@ main {
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: grid;
+  height: 400px;
 }
 
 form > textarea {
-  width: 300px;
-  height: 150px;
+  width: 20rem;
+  height: 10rem;
   resize: none;
+  margin: 0 0;
+}
+
+label,
+input {
+  margin: 0 0;
+  height: 2rem;
 }
 
 section {
   border: solid 1px black;
   padding: 0.5rem;
+}
+
+button {
+  height: 2rem;
+  cursor: pointer;
+  margin: 0;
 }
