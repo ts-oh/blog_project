@@ -1,20 +1,22 @@
 * {
   font-size: 100%;
   font-family: "IBM Plex Mono", monospace;
-  margin: 1rem 0.5rem;
+  margin: 0rem 0rem;
 }
 
 nav {
-  height: 5rem;
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10rem;
   background-color: whitesmoke;
   margin-bottom: 2rem;
-  padding: 1rem 0.5rem;
 }
 
 h1 {
   font-size: 2rem;
   text-align: center;
+  padding: 1rem 1rem;
 }
 
 h3 {
@@ -30,34 +32,109 @@ p {
 
 main {
   display: flex;
-  justify-content: center;
+  margin: 0 2rem;
 }
 
 form {
-  display: grid;
-  height: 400px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin-right: 1rem;
+  padding: 1rem;
 }
 
 form > textarea {
-  width: 20rem;
   height: 10rem;
   resize: none;
   margin: 0 0;
 }
 
-label,
-input {
-  margin: 0 0;
-  height: 2rem;
+label {
+  margin: 0.5rem 0;
 }
 
-section {
+input {
+  margin-bottom: 1rem;
+  height: 2rem;
+  width: 25rem;
+  padding: 0.25rem;
   border: solid 1px black;
-  padding: 0.5rem;
+}
+
+#post-body {
+  padding: 0.25rem;
+  margin-bottom: 1.5rem;
+  border: solid 1px black;
+}
+
+#blog-list {
+  border: 1px solid black;
+  padding: 1rem 2rem;
 }
 
 button {
-  height: 2rem;
+  height: 2.5rem;
   cursor: pointer;
   margin: 0;
+  border: solid 1px black;
+}
+
+hr {
+  margin: 2rem 0;
+}
+
+#footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+  background-color: whitesmoke;
+  margin-top: 2rem;
+}
+
+footer a {
+  padding: 1rem 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+hr:last-child {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section#blog-list {
+    margin: 1rem 0rem;
+  }
+
+  form#new-post {
+    align-items: center;
+    border: 1px solid black;
+    width: 100%;
+    margin: 1rem 0rem;
+    padding: 2rem 0rem;
+  }
+
+  input#post-title {
+    width: 90%;
+  }
+  textarea#post-body {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+  button {
+    width: 25%;
+  }
 }
