@@ -21,7 +21,7 @@ function renderPosts() {
   }
 }
 
-fetch("https://apis.scrimba.com/jsonplaceholder/posts")
+fetch("https://jsonplaceholder.typicode.com/posts")
   .then((res) => res.json())
   .then((data) => {
     postsArray = data.slice(0, 5);
@@ -32,6 +32,11 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const postTitle = titleInput.value;
   const postBody = bodyInput.value;
+
+  if (postTitle === "" || postBody === "") {
+    return;
+  }
+
   const data = {
     title: postTitle,
     body: postBody,
@@ -45,7 +50,7 @@ form.addEventListener("submit", (e) => {
     },
   };
 
-  fetch("https://apis.scrimba.com/jsonplaceholder/posts", options)
+  fetch("https://jsonplaceholder.typicode.com/posts", options)
     .then((response) => response.json())
     .then((post) => {
       postsArray.unshift(post);
